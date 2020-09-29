@@ -11,7 +11,8 @@ html {
 }
 
 body {
-  background-color: var(--backgroundColor);
+  /* background-color: var(--backgroundColor); */
+  background: linear-gradient(45deg, rgb(247, 242, 231), rgb(241, 243, 248));
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -184,7 +185,7 @@ body {
   justify-content: center;
 }
 
-.logo > svg {
+.logo>svg {
   fill: var(--primaryColor);
 }
 

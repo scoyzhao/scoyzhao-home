@@ -1,0 +1,24 @@
+.header {
+  margin:  1rem;
+  padding: .4rem;
+  overflow: hidden;
+  height: 4rem;
+  border-radius: 10rem;
+
+  filter: blur(0.6px);
+}
+
+.header_logo {
+  color: #393b44;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+.header_txt {
+  font-size: 1rem;
+  color: #999;
+  display: inline-block;
+  padding: 0.8rem 0 0 1rem;
+}
