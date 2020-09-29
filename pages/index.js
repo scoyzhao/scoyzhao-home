@@ -3,11 +3,11 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 11:18:06
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-29 17:10:52
+ * @Last Modified time: 2020-09-29 17:39:03
  */
 
 import React, { useState } from 'react'
-import { Row, Col, List, Card } from 'antd'
+import { List, Card } from 'antd'
 import { DashboardOutlined, FolderOutlined } from '@ant-design/icons'
 
 import Architecture from 'components/Architecture'
