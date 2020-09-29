@@ -1,0 +1,13 @@
+.comm_left {
+  padding: .3rem;
+}
+
+.comm_right {
+  margin-left: .5rem;
+  padding: .3rem;
+
+}
+
+.comm_main {
+  margin-top: .5rem;
+}
