@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - v12.18.3
+branches:
+  # *只有在master改变会触发
+  only:
+    - master
+install: npm install
+script:
+  -npm build
+  # TODO 部署脚本
