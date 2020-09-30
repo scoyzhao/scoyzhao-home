@@ -11,5 +11,5 @@ install: npm install
 script:
 - npm build
 after_success:
-- chmod 600 ~/.ssh/id_rsa   #还是Linux文件权限问题
+- chmod 600 ~/.ssh/id_rsa
 - ssh travis@120.27.247.30 -o StrictHostKeyChecking=no 'cd ~/scoyzhao-home && git pull && npm install && npm run dev'
