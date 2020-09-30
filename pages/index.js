@@ -3,11 +3,12 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 11:18:06
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-29 17:39:03
+ * @Last Modified time: 2020-09-30 11:02:09
  */
 
 import React, { useState } from 'react'
 import { List, Card } from 'antd'
+import Router from 'next/router'
 import { DashboardOutlined, FolderOutlined } from '@ant-design/icons'
 
 import Architecture from 'components/Architecture'
@@ -25,6 +26,10 @@ const Home = () => {
     ]
   )
 
+  const gotoDetail = () => {
+    Router.push('/detail')
+  }
+
   return (
     <Architecture
       content={
@@ -34,7 +39,9 @@ const Home = () => {
           renderItem={item => (
             <Item>
               <Card hoverable bordered={false}>
-                <div className={styles.list_title}>{item.title}</div>
+                <div className={styles.list_title} onClick={gotoDetail}>
+                  {item.title}
+                </div>
                 <div className={styles.list_icon}>
                   <span><DashboardOutlined /> 2019-06-28</span>
                   <span><FolderOutlined /> 视频教程</span>

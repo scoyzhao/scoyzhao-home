@@ -3,18 +3,20 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 15:30:21
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-29 18:23:57
+ * @Last Modified time: 2020-09-30 11:10:01
  */
 
 import React from 'react'
 import { Breadcrumb, Affix } from 'antd'
 import { DashboardOutlined, FolderOutlined } from '@ant-design/icons'
-import ReactMarkdown from 'react-markdown'
+import Link from 'next/link'
+
+import ReactMarkdown from 'react-markdown/with-html'
+import MarkNav from 'markdown-navbar'
 
 import Architecture from '@/components/Architecture'
 import styles from './index.module.css'
 
-import MarkNav from 'markdown-navbar';
 
 const { Item } = Breadcrumb
 
@@ -53,51 +55,55 @@ const markdown = '# P01:课程介绍和环境搭建\n' +
   '>>> cccccccccc\n\n' +
   '``` var a=11; ```'
 
-const List = () => (
-  <Architecture
-    title='文章详情页'
-    content={
-      <div>
-        <div className={styles.bread_div}>
-          <Breadcrumb>
-            <Item><a href="/">首页</a></Item>
-            <Item>视频列表</Item>
-            <Item>xxxx</Item>
-          </Breadcrumb>
+const List = () => {
+  return (
+    <Architecture
+      title='文章详情页'
+      content={
+        <div>
+          <div className={styles.bread_div}>
+            <Breadcrumb>
+              <Item>
+                <Link href="/">首页</Link>
+              </Item>
+              <Item>视频列表</Item>
+              <Item>xxxx</Item>
+            </Breadcrumb>
+          </div>
+
+          <div className={styles.detailed}>
+            <div className={styles.detailed_title}>
+              React实战视频教程-技术胖Blog开发(更新08集)
+          </div>
+
+            <div className={styles.list_icon}>
+              <span><DashboardOutlined /> 2019-06-28</span>
+              <span><FolderOutlined /> 视频教程</span>
+            </div>
+
+            <div className={styles.detailed_content} >
+              <ReactMarkdown
+                source={markdown}
+                escapeHtml={false}
+              />
+            </div>
+          </div>
         </div>
-
-        <div className={styles.detailed}>
-          <div className={styles.detailed_title}>
-            React实战视频教程-技术胖Blog开发(更新08集)
-          </div>
-
-          <div className={styles.list_icon}>
-            <span><DashboardOutlined /> 2019-06-28</span>
-            <span><FolderOutlined /> 视频教程</span>
-          </div>
-
-          <div className={styles.detailed_content} >
-            <ReactMarkdown
+      }
+      sidebar={
+        <Affix offsetTop={3}>
+          <div className={styles.sidebar}>
+            <div className={styles.sidebar_title}>文章目录</div>
+            <MarkNav
+              className={styles.article_menu}
               source={markdown}
-              escapeHtml={false}
+              ordered={false}
             />
           </div>
-        </div>
-      </div>
-    }
-    sidebar={
-      <Affix offsetTop={3}>
-        <div className={styles.sidebar}>
-          <div className={styles.sidebar_title}>文章目录</div>
-          <MarkNav
-            className={styles.article_menu}
-            source={markdown}
-            ordered={false}
-          />
-        </div>
-      </Affix>
-    }
-  />
-)
+        </Affix>
+      }
+    />
+  )
+}
 
 export default List
