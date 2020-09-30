@@ -12,8 +12,4 @@ script:
 - npm build
 after_success:
 - chmod 600 ~/.ssh/id_rsa
-- ssh travis@120.27.247.30 -o StrictHostKeyChecking=no
-- cd ~/scoyzhao-home
-- git pull
-- sudo npm install
-- sudo npm run build && sudo npm run start
+- ssh travis@120.27.247.30 -o StrictHostKeyChecking=no 'cd ~/scoyzhao-home && git pull && sudo npm install && sudo npm run dev'
