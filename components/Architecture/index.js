@@ -3,7 +3,7 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 17:00:13
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-29 18:38:37
+ * @Last Modified time: 2020-09-30 10:17:28
  */
 
 import { Row, Col, BackTop  } from 'antd'
@@ -19,7 +19,6 @@ const style = {
   width: 40,
   lineHeight: '40px',
   borderRadius: 4,
-  // backgroundColor: '#3a3c45',
   color: '#fff',
   textAlign: 'center',
   fontSize: 40,

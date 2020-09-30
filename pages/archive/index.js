@@ -2,31 +2,23 @@
  * 归档页面
  * @Author: scoyzhao
  * @Date: 2020-09-29 15:32:17
- * @Last Modified by:   scoyzhao
- * @Last Modified time: 2020-09-29 15:32:17
+ * @Last Modified by: scoyzhao
+ * @Last Modified time: 2020-09-30 10:28:19
  */
 import React from 'react'
-import Head from 'next/head'
-import { Row, Col } from 'antd'
-import Header from '../components/Header'
+import { withRouter } from 'next/router'
+import Architecture from 'components/Architecture'
 
 const Archive = () => (
-  <>
-    <Head>
-      <title>Archive</title>
-    </Head>
-    <Header />
-    <Row className="comm-main" type="flex" justify="center">
-      <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
-        左侧
-      </Col>
-
-      <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-        右侧
-      </Col>
-    </Row>
-
-  </>
+  <Architecture
+    title='归档'
+    content={
+      <>
+        Archive page
+      </>
+    }
+  >
+  </Architecture>
 )
 
-export default Archive
+export default withRouter(Archive)

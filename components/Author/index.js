@@ -3,17 +3,16 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 16:13:43
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-29 16:42:03
+ * @Last Modified time: 2020-09-30 10:27:42
  */
 import { Avatar, Card } from 'antd'
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons'
+import Link from 'next/link'
 
 import styles from './index.module.css'
 
 const { Meta } = Card
 
 const Author = () => {
-
   return (
     <Card
       className={styles.author}
@@ -21,10 +20,10 @@ const Author = () => {
         <img src='http://img.wxcha.com/file/201811/01/e7acbcc1fd.jpg' />
       }
       actions={[
-        <div>归档</div>,
-        <div>分类</div>,
-        <div>标签</div>,
-        <div>关于</div>,
+        <Link href='/archive'>归档</Link>,
+        <Link href='/list'>分类</Link>,
+        <Link href='/tags'>标签</Link>,
+        <Link href='/about'>关于</Link>,
       ]}
     >
       <Meta
