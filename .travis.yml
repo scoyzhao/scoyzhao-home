@@ -9,7 +9,9 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 install: npm install
 script:
-- npm build
+- npm run build
+- npm run export
 after_success:
 - chmod 600 ~/.ssh/id_rsa
-- ssh travis@120.27.247.30 -o StrictHostKeyChecking=no 'cd ~/scoyzhao-home && git pull && sudo npm install && sudo npm run dev'
+# - ssh travis@120.27.247.30 -o StrictHostKeyChecking=no 'cd ~/scoyzhao-home && git pull && sudo npm install && sudo npm run dev'
+- rsync -e 'ssh -i ~/.ssh/id_rsa' -r /out travis@120.27.247.30:~/
