@@ -3,33 +3,32 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 16:13:43
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-11-09 20:04:31
+ * @Last Modified time: 2020-12-07 20:41:37
  */
-import { Avatar, Card } from 'antd'
-import Link from 'next/link'
 
-import styles from './index.module.css'
+import { Avatar, Card } from 'antd'
+import { gotoAboutPage } from '@/util'
 
 const { Meta } = Card
 
-const Author = () => {
+const Author = ({ isShowAuthorPic }) => {
   return (
     <Card
-      className={styles.author}
       cover={
-        <img src='https://raw.githubusercontent.com/scoyzhao/FigureBed/master/blog/index_pic.jpg' />
+        isShowAuthorPic && <img src='https://raw.githubusercontent.com/scoyzhao/FigureBed/master/blog/index_pic.jpg' />
       }
-      actions={[
-        <Link href='/archive'>归档</Link>,
-        <Link href='/list'>分类</Link>,
-        <Link href='/tags'>标签</Link>,
-        <Link href='/about'>关于</Link>,
-      ]}
     >
       <Meta
         avatar={<Avatar src='https://raw.githubusercontent.com/scoyzhao/FigureBed/master/blog/admin/avatar.png' />}
-        title='scoyzhao'
-        description='前端er~'
+        title='一枚前端er'
+        description={
+          <span
+            className='pointer'
+            onClick={() => gotoAboutPage()}
+          >
+            关于 scoyzhao~
+          </span>
+        }
       />
     </Card>
   )

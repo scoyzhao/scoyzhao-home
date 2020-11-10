@@ -6,17 +6,10 @@
   background-color: #ffffff;
 }
 
-.detailed {
-  margin-top: 1rem;
-  padding: .5rem;
-  border-radius: 1rem;
-  background-color: #ffffff;
-}
-
 .detailed_title {
-  font-size: 1.8rem;
+  font-size: 28px;
   text-align: center;
-  padding: 2rem;
+  padding: 30px 20px 20px;
 }
 
 .list_icon {
@@ -31,40 +24,23 @@
 }
 
 .detailed_content {
-  padding: 1.3rem;
-  font-size: 1rem;
-}
-
-.code {
-  display: block;
-  background-color: #f3f3f3;
-  padding: .5rem !important;
-  overflow-y: auto;
-  font-weight: 300;
-  font-family: Menlo, monospace;
-  border-radius: .3rem;
+  margin: 50px 20px;
+  font-size: 16px;
 }
 
 .sidebar {
-  background-color: #FFF;
-  margin-top: 1rem;
-  padding: .3rem;
-  border-radius: .3rem;
+  background-color: #ffffff;
+  margin-top: 10px;
+  padding: 10px;
   border: 1px solid #eee;
 }
 
 .title_anchor {
   color: #888 !important;
   padding: 4px !important;
-  margin: 0rem !important;
   height: auto !important;
-  line-height: 1.2rem !important;
-  font-size: .9rem !important;
-  border-bottom: 1px dashed #eee;
-}
-
-.active {
-  color: rgb(30, 144, 255) !important;
+  line-height: 14px !important;
+  font-size: 12px !important;
 }
 
 .article_menu {
@@ -73,7 +49,7 @@
 
 .sidebar_title {
   text-align: center;
-  font-size: 1rem;
-  padding: 1rem;
+  font-size: 14px;
+  padding: 10px;
   border-bottom: 1px solid #f1f3f4;
 }

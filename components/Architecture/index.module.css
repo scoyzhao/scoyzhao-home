@@ -1,13 +1,12 @@
 .comm_left {
-  padding: .3rem;
+  padding: 10px 20px;
+  background-color: white;
 }
 
 .comm_right {
-  margin-left: .5rem;
-  padding: .3rem;
-
+  margin-left: 20px;
 }
 
 .comm_main {
-  margin-top: .5rem;
+  margin-top: 15px;
 }

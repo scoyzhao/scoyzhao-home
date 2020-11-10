@@ -1,20 +1,43 @@
-.list_title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  padding: 0 0.5rem;
+.title {
+  margin: 15px 0;
+  padding: 10px 0;
+  font-size: 20px;
 }
 
-.list_context {
+.list {
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+.list_time {
+  color: #aaaaaa;
+}
+
+.top_title {
+  margin: 10px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.top_abstract {
+  margin: 20px;
   color: #777;
-  padding: 1rem .5rem;
 }
 
-.list_icon {
-  padding: .5rem 0;
-  color: #AAA;
+.top_type {
+  padding: 10px 0;
+  color: #aaaaaa;
 }
 
-.list_icon span {
+.top_type span {
   display: inline-block;
-  padding: 0 0.5rem;
+  padding-right: 10px;
+}
+
+.top_detail,
+.more {
+  padding: 30px 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
 }

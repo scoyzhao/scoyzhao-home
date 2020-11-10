@@ -1,0 +1,9 @@
+.wrap {
+  min-height: 400px;
+}
+
+.content {
+  padding-top: 150px;
+  text-align: center;
+  font-size: 18px;
+}

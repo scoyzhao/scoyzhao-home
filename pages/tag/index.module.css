@@ -1,0 +1,16 @@
+.wrap {
+  padding: 20px 0 30px;
+}
+
+.title {
+  margin-bottom: 40px;
+  padding: 10px;
+  background: #e6f7ff;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+.title_type {
+  margin-left: 10px;
+  font-weight: bold;
+}

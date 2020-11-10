@@ -3,57 +3,135 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 11:18:06
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-30 11:02:09
+ * @Last Modified time: 2020-12-07 20:32:46
  */
 
-import React, { useState } from 'react'
-import { List, Card } from 'antd'
+import React from 'react'
+import { List, Tag } from 'antd'
 import Router from 'next/router'
-import { DashboardOutlined, FolderOutlined } from '@ant-design/icons'
+import Error from '@/components/Error'
+import API from '@/service/api'
+import { formatDate, gotoDetailPage, gotoTypePage } from '@/util'
 
-import Architecture from 'components/Architecture'
+import Architecture from '@/components/Architecture'
+import BlogItem from '@/components/BlogItem'
 import styles from './index.module.css'
 
-const { Item } = List
+const { Item } = List;
 
-const Home = () => {
-  const [mylist, setMylist] = useState(
-    [
-      { title: '50元加入小密圈 胖哥带你学一年', context: '50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。' },
-      { title: 'React实战视频教程-技术胖Blog开发(更新04集)', context: '50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。' },
-      { title: 'React服务端渲染框架Next.js入门(共12集)', context: '50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。' },
-      { title: 'React Hooks 免费视频教程(共11集)', context: '50元跟着胖哥学一年，掌握程序人的学习方法。 也许你刚步入IT行业，也许你遇到了成长瓶颈，也许你不知道该学习什么知识，也许你不会融入团队，也许...........有些时候你陷入彷徨。 你需要一个强力的队友，你需要一个资深老手，你需要一个随时可以帮助你的人，你更需要一个陪你加速前行的。 我在这个行业走了12年，从后端、前端到移动端都从事过，从中走了很多坑，但我有一套适合程序员的学习方法。 如果你愿意，我将带着你在这个程序行业加速奔跑。分享我学习的方法，所学的内容和一切我的资料。 你遇到的职业问题，我也会第一时间给你解答。我需要先感谢一直帮助我的小伙伴，这个博客能产出300多集免费视频，其中有他们的鼎力支持，如果没有他们的支持和鼓励，我可能早都放弃了。 原来我博客只是录制免费视频，然后求30元的打赏。 每次打赏我都会觉得内疚，因为我并没有给你特殊的照顾，也没能从实质上帮助过你。 直到朋友给我介绍了知识星球，它可以专享加入，可以分享知识，可以解答问题，所以我如获珍宝，决定把打赏环节改为知识服务。我定价50元每年，为什么是50元每年？因为这是知识星球允许的最低收费了。' },
-    ]
-  )
-
-  const gotoDetail = () => {
-    Router.push('/detail')
+const Home = ({ error, data, msg }) => {
+  if (error) {
+    return <Error message={msg} />
   }
+  const { topBlogList, recentBlogList } = data
+
+  const buildTopBlogList = () => {
+    return (
+      <List
+        itemLayout='vertical'
+        dataSource={topBlogList}
+        renderItem={blog => (
+          <Item key={blog.id}>
+            <div className={styles.top_title}>{blog.title}</div>
+            <div className={styles.top_type}>
+              <span><Tag color='geekblue'>置顶</Tag></span>
+              <span>{formatDate(blog.created_time)}</span>
+              <span
+                className='pointer'
+                onClick={() => gotoTypePage(type.id)}
+              >
+                分类：{blog.type.name}
+              </span>
+            </div>
+            <div className={styles.top_abstract}>{blog.abstract}</div>
+            <div
+              className={styles.top_detail}
+              onClick={() => gotoDetailPage(blog.id)}
+            >
+              --查看全文--
+            </div>
+          </Item>
+        )}
+      />
+    )
+  }
+
+  const buildRecentBlogList = () => {
+    return (
+      <>
+        <div className={styles.title}>最近</div>
+        {
+          recentBlogList.map(blog => (
+            <BlogItem key={blog.id} blog={blog} />
+          ))
+        }
+        <div
+          className={styles.more}
+          onClick={gotoListPage}
+        >
+          查看更多......
+        </div>
+      </>
+    )
+  }
+
+  const buildContent = () => {
+    return (
+      <>
+        {
+          buildTopBlogList()
+        }
+        {
+          buildRecentBlogList()
+        }
+      </>
+    )
+  }
+
+  const gotoListPage = () => {
+    Router.push('/list')
+  }
+
 
   return (
     <Architecture
+      isShowAuthorPic
       content={
-        <List
-          itemLayout='vertical'
-          dataSource={mylist}
-          renderItem={item => (
-            <Item>
-              <Card hoverable bordered={false}>
-                <div className={styles.list_title} onClick={gotoDetail}>
-                  {item.title}
-                </div>
-                <div className={styles.list_icon}>
-                  <span><DashboardOutlined /> 2019-06-28</span>
-                  <span><FolderOutlined /> 视频教程</span>
-                </div>
-                <div className={styles.list_context}>{item.context}</div>
-              </Card>
-            </Item>
-          )}
-        />
+        buildContent()
       }
     />
   )
+}
+
+export const getStaticProps = async () => {
+  try {
+    const res = await fetch(API.GET_BLOG_LIST_WITH_TOP, { method: 'POST' })
+    const json = await res.json()
+    const { code, data, msg } = json
+
+    if (code !== 0) {
+      return {
+        props: {
+          error: true,
+          msg,
+        }
+      }
+    }
+
+    return {
+      props: {
+        error: false,
+        data,
+      }
+    }
+  } catch (error) {
+    return {
+      props: {
+        error: true,
+        msg: error.toString(),
+      }
+    }
+  }
 }
 
 export default Home

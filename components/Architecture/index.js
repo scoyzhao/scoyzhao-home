@@ -3,14 +3,16 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 17:00:13
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-30 10:46:46
+ * @Last Modified time: 2020-12-04 20:31:52
  */
 
-import { Row, Col, BackTop  } from 'antd'
+import { Row, Col, BackTop } from 'antd'
 import Head from 'next/head'
 
 import Header from 'components/Header'
 import Author from 'components/Author'
+import TypeBar from 'components/TypeBar'
+import TagBar from 'components/TagBar'
 import Footer from 'components/Footer'
 import styles from './index.module.css'
 
@@ -24,7 +26,14 @@ const style = {
   fontSize: 40,
 };
 
-const Architecture = ({ title='scoyzhao-home', content = null, sidebar = null } = {}) => {
+const Architecture = ({
+  title = 'scoyzhao-home',
+  content = null,
+  sidebar = null,
+  isShowAuthorPic = false,
+  typeList = undefined,
+  tagList = undefined,
+} = {},) => {
   return (
     <>
       <Head>
@@ -32,12 +41,14 @@ const Architecture = ({ title='scoyzhao-home', content = null, sidebar = null } 
       </Head>
       <Header />
       <Row className={styles.comm_main} type='flex' justify='center'>
-        <Col className={styles.comm_left} xs={24} sm={24} md={16} lg={18} xl={14}>
-          { content }
+        <Col className={styles.comm_left} xs={24} sm={24} md={16} lg={18} xl={12}>
+          {content}
         </Col>
-        <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={4}>
-          <Author />
-          { sidebar }
+        <Col className={styles.comm_right} xs={0} sm={0} md={7} lg={5} xl={3}>
+          <Author isShowAuthorPic={isShowAuthorPic} />
+          {typeList && <TypeBar typeList={typeList} />}
+          {tagList && <TagBar tagList={tagList} />}
+          {sidebar}
         </Col>
       </Row>
       <BackTop>

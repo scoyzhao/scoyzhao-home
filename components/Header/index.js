@@ -3,7 +3,7 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 11:38:00
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-09-30 10:36:15
+ * @Last Modified time: 2020-12-07 20:39:43
  */
 import React from 'react'
 import { Row, Col, Menu, Dropdown } from 'antd'
@@ -16,13 +16,7 @@ const { Item } = Menu;
 const menu = (
   <Menu style={{ width: '100px', textAlign: 'center' }}>
     <Item>
-      <Link href='/archive'>归档</Link>
-    </Item>
-    <Item>
-      <Link href='/list'>分类</Link>
-    </Item>
-    <Item>
-      <Link href='/tags'>标签</Link>
+      <Link href='/list'>归档</Link>
     </Item>
     <Item>
       <Link href='/about'>关于</Link>
