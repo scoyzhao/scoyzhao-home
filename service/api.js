@@ -2,11 +2,11 @@
  * @Author: scoyzhao
  * @Date: 2020-11-10 20:26:31
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-12-07 19:48:55
+ * @Last Modified time: 2020-12-08 11:20:55
  */
 
-// const BASE_URL = 'http://120.27.247.30:7001/home'
-const BASE_URL = 'http://192.168.208.82:7001/home'
+const BASE_URL = 'http://120.27.247.30:7001/home'
+// const BASE_URL = 'http://192.168.208.82:7001/home'
 
 const API = {
   GET_TAG_LIST: BASE_URL + '/tag/getTagList',
