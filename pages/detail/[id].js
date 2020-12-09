@@ -3,7 +3,7 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 15:30:21
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-12-07 20:22:23
+ * @Last Modified time: 2020-12-09 10:26:33
  */
 
 import React from 'react'
@@ -49,6 +49,7 @@ const Index = ({ error, msg, blog }) => {
   return (
     <Architecture
       title='博客详情'
+      isShowAuthorPic
       content={
         <>
           <div className={styles.detailed_title}>
@@ -79,7 +80,7 @@ const Index = ({ error, msg, blog }) => {
       sidebar={
         <Affix offsetTop={3}>
           <div className={styles.sidebar}>
-            <div className={styles.sidebar_title}>文章目录</div>
+            <div className={styles.sidebar_title}>目录</div>
             <MarkNav
               className={styles.article_menu}
               source={content}

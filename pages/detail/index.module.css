@@ -7,7 +7,7 @@
 }
 
 .detailed_title {
-  font-size: 28px;
+  font-size: 26px;
   text-align: center;
   padding: 30px 20px 20px;
 }
@@ -45,11 +45,12 @@
 
 .article_menu {
   font-size: 12px;
+  text-align: left;
 }
 
 .sidebar_title {
   text-align: center;
-  font-size: 14px;
-  padding: 10px;
+  font-size: 16px;
+  padding: 5px;
   border-bottom: 1px solid #f1f3f4;
 }

@@ -3,7 +3,7 @@
  * @Author: scoyzhao
  * @Date: 2020-09-29 11:18:06
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-12-07 20:32:46
+ * @Last Modified time: 2020-12-09 10:30:29
  */
 
 import React from 'react'
@@ -32,13 +32,18 @@ const Home = ({ error, data, msg }) => {
         dataSource={topBlogList}
         renderItem={blog => (
           <Item key={blog.id}>
-            <div className={styles.top_title}>{blog.title}</div>
+            <div
+              className={styles.top_title}
+              onClick={() => gotoDetailPage(blog.id)}
+            >
+              {blog.title}
+            </div>
             <div className={styles.top_type}>
               <span><Tag color='geekblue'>置顶</Tag></span>
               <span>{formatDate(blog.created_time)}</span>
               <span
                 className='pointer'
-                onClick={() => gotoTypePage(type.id)}
+                onClick={() => gotoTypePage(blog.type.id)}
               >
                 分类：{blog.type.name}
               </span>

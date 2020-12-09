@@ -3,7 +3,7 @@
  * @Author: scoyzhao
  * @Date: 2020-11-30 21:02:19
  * @Last Modified by: scoyzhao
- * @Last Modified time: 2020-12-07 20:45:28
+ * @Last Modified time: 2020-12-09 10:23:22
  */
 
 import React from 'react'
@@ -40,7 +40,7 @@ const Index = ({ blog }) => {
       <Col span={3} className={styles.list_time}>
         {formatDate(createdTime)}
       </Col>
-      <Col span={17}>
+      <Col span={16}>
         <span
           className='pointer'
           onClick={() => gotoDetailPage(id)}
@@ -49,8 +49,8 @@ const Index = ({ blog }) => {
         </span>
         {buildTags()}
       </Col>
-      <Col span={4}>
-        分类:
+      <Col span={5}>
+        分类:&nbsp;
         <span
           className='pointer'
           onClick={() => gotoTypePage(type.id)}
